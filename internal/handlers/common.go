@@ -8,4 +8,5 @@ import (
 type AppContext struct {
 	Store   *store.Store
 	Checker *checker.CertificateService
+	ApiKey  string
 }

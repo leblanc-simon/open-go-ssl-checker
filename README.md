@@ -55,6 +55,7 @@ server:
   port: 4332
   host: 127.0.0.1
   log_level: error
+  api_key: "change-me-please"  # Optional; if set, required for API access
 ```
 
 You can also use environment variables to configure the tool. The environment variables are prefixed with `OGSC_`.
@@ -67,6 +68,42 @@ export OGSC_DB_DSN=./ogsc.db
 export OGSC_SERVER_PORT=4332
 export OGSC_SERVER_HOST=127.0.0.1
 export OGSC_LOG_LEVEL=error
+export OGSC_API_KEY="change-me-please"
+```
+
+## API
+
+An authenticated HTTP API is available to add projects.
+
+- Endpoint: POST /api/projects
+- Auth: send your API key in the X-API-Key header. The key is configured via server.api_key in the YAML config or OGSC_API_KEY env var.
+- Content-Type: application/json
+- Request body:
+  {
+    "name": "My Project",
+    "host": "example.com",
+    "port": 443,
+    "type": "https",
+    "allow_insecure": false
+  }
+- Responses:
+  - 201 Created: { "id": "<uuid>", "status": "created" }
+  - 400 Bad Request: { "error": "..." }
+  - 401 Unauthorized: { "error": "unauthorized" }
+
+Example:
+
+```bash
+curl -X POST http://127.0.0.1:4332/api/projects \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: change-me-please" \
+  -d '{
+    "name": "My Project",
+    "host": "example.com",
+    "port": 443,
+    "type": "https",
+    "allow_insecure": false
+  }'
 ```
 
 ### Author

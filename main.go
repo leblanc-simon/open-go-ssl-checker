@@ -88,6 +88,7 @@ func main() {
 	appCtx := &handlers.AppContext{
 		Store:   dbStore,
 		Checker: certCheckerService,
+		ApiKey:  cfg.Server.ApiKey,
 	}
 
 	// Configure the routes
@@ -107,6 +108,12 @@ func main() {
 	router.PathPrefix("/static/").HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFileFS(w, r, staticFs, strings.TrimLeft(r.RequestURI, "/"))
 	}).Methods("GET")
+
+	if cfg.Server.ApiKey == "" {
+		log.Println("WARNING: API key not set. The API will not be available.")
+	} else {
+		router.HandleFunc("/api/projects", appCtx.AddProjectAPIHandler).Methods("POST")
+	}
 
 	// Start the web server
 	serverPort := net.JoinHostPort(cfg.Server.Host, strconv.Itoa(cfg.Server.Port))
