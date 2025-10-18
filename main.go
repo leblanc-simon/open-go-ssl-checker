@@ -76,6 +76,14 @@ func main() {
 	periodicCertChecker.Start()
 	defer periodicCertChecker.Stop()
 
+	// Listen for WebSocket-driven refresh requests and trigger a full check run
+	go func() {
+		for range wsHub.RefreshRequests() {
+			log.Println("Manual refresh requested via WebSocket. Launching full certificate checks...")
+			periodicCertChecker.RunOnce()
+		}
+	}()
+
 	// Initialize the application context
 	appCtx := &handlers.AppContext{
 		Store:   dbStore,

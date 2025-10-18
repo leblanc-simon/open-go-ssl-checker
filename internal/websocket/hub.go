@@ -28,22 +28,23 @@ type Client struct {
 }
 
 type Hub struct {
-	clients    map[*Client]bool
-	broadcast  chan []byte // Messages to send (serialized JSON data)
-	register   chan *Client
-	unregister chan *Client
-	store      *store.Store // To retrieve updated data
-	mu         sync.Mutex   // To protect access to `clients`
+	clients          map[*Client]bool
+	broadcast        chan []byte // Messages to send (serialized JSON data)
+	register         chan *Client
+	unregister       chan *Client
+	store            *store.Store // To retrieve updated data
+	mu               sync.Mutex   // To protect access to `clients`
+	refreshRequested chan struct{}
 }
 
 func NewHub(s *store.Store) *Hub {
 	return &Hub{
-		clients:   make(map[*Client]bool),
-		broadcast: make(chan []byte),
-
-		register:   make(chan *Client),
-		unregister: make(chan *Client),
-		store:      s,
+		clients:          make(map[*Client]bool),
+		broadcast:        make(chan []byte),
+		register:         make(chan *Client),
+		unregister:       make(chan *Client),
+		store:            s,
+		refreshRequested: make(chan struct{}, 1),
 	}
 }
 
@@ -102,6 +103,12 @@ func (h *Hub) NotifyUpdate() {
 		return
 	}
 	h.broadcast <- jsonData // Send JSON data to broadcast channel
+}
+
+// RefreshRequests returns a read-only channel that emits a signal
+// when any connected client requests a full refresh via the WebSocket.
+func (h *Hub) RefreshRequests() <-chan struct{} {
+	return h.refreshRequested
 }
 
 // ServeWs handles client WebSocket requests.
@@ -196,7 +203,14 @@ func (c *Client) readPump(hub *Hub) {
 
 		if messageType == websocket.TextMessage {
 			if string(message) == "refresh" {
-				hub.sendCurrentState(c)
+				// Signal a refresh request without blocking
+				select {
+				case hub.refreshRequested <- struct{}{}:
+					log.Println("Received refresh request from client; triggering full checks...")
+				default:
+					// If a refresh signal is already pending, avoid piling up
+					log.Println("Refresh request already pending; ignoring duplicate.")
+				}
 			}
 		}
 	}

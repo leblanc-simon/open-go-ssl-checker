@@ -92,7 +92,7 @@ const enData string = "" + // Size: 487 bytes
 	"h TLS)\x02(with STARTTLS)\x02Custom\x02Port\x02Allow insecure certificat" +
 	"es\x02Allow insecure certificates must be used for self-signed or invali" +
 	"d certificates. Use with caution.\x02Add project\x02No history found\x02" +
-	"Verification date\x02Domains\x02IP\x02issuer\x02Expiry date\x02Days rema" +
+	"Verification date\x02Domains\x02IP\x02Issuer\x02Expiry date\x02Days rema" +
 	"ining\x02Failed\x02Dashboard\x02No project\x02Host:Port\x02Project type" +
 	"\x02Check time\x02Actions\x02Never checked\x02expired\x02History\x02Refr" +
 	"esh datas\x02Projects\x02Are you sure you want to delete this project?" +
@@ -104,24 +104,24 @@ var frIndex = []uint32{ // 33 elements
 	0x0000003e, 0x0000004e, 0x0000005e, 0x0000006c,
 	0x00000071, 0x0000009b, 0x000000ed, 0x000000ff,
 	0x00000118, 0x00000130, 0x00000139, 0x0000013c,
-	0x0000013c, 0x00000146, 0x00000155, 0x0000015c,
-	0x0000016c, 0x0000017b, 0x00000186, 0x0000018b,
-	0x000001a1, 0x000001a9, 0x000001ba, 0x000001c2,
-	0x000001cd, 0x000001e6, 0x000001f8, 0x00000249,
+	0x00000146, 0x00000150, 0x0000015f, 0x00000166,
+	0x00000176, 0x00000185, 0x00000190, 0x00000195,
+	0x000001ab, 0x000001b3, 0x000001c4, 0x000001cc,
+	0x000001d7, 0x000001f0, 0x00000202, 0x00000253,
 	// Entry 20 - 3F
-	0x00000253,
+	0x0000025d,
 } // Size: 156 bytes
 
-const frData string = "" + // Size: 595 bytes
+const frData string = "" + // Size: 605 bytes
 	"\x02Ajouter un nouveau projet\x02Nom du projet\x02Hôte\x02Type de servic" +
 	"e\x02(avec AUTH TLS)\x02(avec STARTTLS)\x02Personnalisé\x02Port\x02Autor" +
 	"iser les certificats non sécurisés\x02Pour les certificats auto-signés o" +
 	"u non sécurisés. À utiliser avec prudence !\x02Ajouter le projet\x02Aucu" +
-	"n historique trouvé\x02Dernière vérification\x02Domaines\x02IP\x02Expire" +
-	" le\x02Jours restants\x02Échec\x02Tableau de bord\x02Aucun projet !\x02H" +
-	"ôte:Port\x02Type\x02Date de vérification\x02Actions\x02Jamais vérifié" +
-	"\x02Expiré\x02Historique\x02Rafraîchir les données\x02Liste des projets" +
-	"\x02Êtes vous sûr de vouloir supprimer ce projet et l'ensemble de son hi" +
-	"storique ?\x02Supprimer"
+	"n historique trouvé\x02Dernière vérification\x02Domaines\x02IP\x02Émette" +
+	"ur\x02Expire le\x02Jours restants\x02Échec\x02Tableau de bord\x02Aucun p" +
+	"rojet !\x02Hôte:Port\x02Type\x02Date de vérification\x02Actions\x02Jamai" +
+	"s vérifié\x02Expiré\x02Historique\x02Rafraîchir les données\x02Liste des" +
+	" projets\x02Êtes vous sûr de vouloir supprimer ce projet et l'ensemble d" +
+	"e son historique ?\x02Supprimer"
 
-	// Total table size 1394 bytes (1KiB); checksum: 4236FCC9
+	// Total table size 1404 bytes (1KiB); checksum: 28F18B00

@@ -51,6 +51,11 @@ func (pc *PeriodicChecker) Stop() {
 	close(pc.stopChan)
 }
 
+// RunOnce triggers a single execution of all certificate checks immediately.
+func (pc *PeriodicChecker) RunOnce() {
+	pc.runChecks()
+}
+
 // runChecks retrieves all projects and triggers verification for each.
 func (pc *PeriodicChecker) runChecks() {
 	log.Println("Starting periodic check series.")
