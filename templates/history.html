@@ -1,0 +1,48 @@
+{{ define "title" }}{{ Translate "history_for" .ProjectName  }}{{ end  }}
+
+{{ define "content" }}
+        <h2>{{ Translate "history_for" .ProjectName  }}</h2>
+        {{ if not .Checks }}
+            <p class="no-data">{{ Translate "no_history_found" }}</p>
+        {{ else }}
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ Translate "verification_date" }}</th>
+                    <th>{{ Translate "domains" }}</th>
+                    <th>{{ Translate "ip" }}</th>
+                    <th>{{ Translate "issuer" }}</th>
+                    <th>{{ Translate "expiry_date" }}</th>
+                    <th>{{ Translate "days_remaining" }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Checks }}
+                <tr {{ if eq .DaysRemaining -1 }}class="status-failed"{{ end }}>
+                    <td>{{ .CheckTime.Format "02 Jan 2006 15:04:05" }}</td>
+                    <td>{{ .Domains }}</td>
+                    <td>{{ .IP }}</td>
+                    <td>{{ .Issuer }}</td>
+                    <td>{{ if eq .ExpiryDate "N/A" }}N/A{{ else }}{{ .ExpiryDate }}{{ end }}</td>
+                    <td>
+                        {{ if eq .DaysRemaining -1 }}
+                            {{ Translate "failed" }}
+                        {{ else }}
+                            {{ $days := .DaysRemaining }}
+                            <span
+                                {{ if lt $days 0 }} class="days-critical" title="Expiré"
+                                {{ else if lt $days 15 }} class="days-critical"
+                                {{ else if lt $days 30 }} class="days-warning"
+                                {{ else }} class="days-ok"
+                                {{ end }}
+                            >
+                                {{ $days }}
+                            </span>
+                        {{ end }}
+                    </td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+        {{ end }}
+{{ end }}

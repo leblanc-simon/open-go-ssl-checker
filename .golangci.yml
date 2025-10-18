@@ -1,0 +1,25 @@
+version: "2"
+linters:
+    default: all
+    settings:
+       depguard:
+           rules:
+               main:
+                    allow:
+                       - $gostd
+                       - leblanc.io/open-go-ssl-checker/internal
+                       - github.com/gorilla/websocket
+                       - github.com/mattn/go-sqlite3
+                       - github.com/gorilla/mux
+                       - github.com/google/uuid
+                       - github.com/ilyakaznacheev/cleanenv
+    disable:
+       - mnd
+       - misspell
+formatters:
+    enable:
+        - gci
+        - gofmt
+        - gofumpt
+        - goimports
+        - golines

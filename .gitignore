@@ -1,0 +1,13 @@
+# Release files
+/releases/*
+!/releases/extract-message-from-template.sh
+
+# Translations temporary files
+/translations/locales/*/out.gotext.json
+
+# Database files
+/*.db
+/*.sqlite
+
+# Binary files
+/open-go-ssl-checker

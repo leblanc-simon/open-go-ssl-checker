@@ -1,0 +1,93 @@
+{{ define "title" }}{{ Translate "dashboard" }}{{ end  }}
+
+{{ define "content" }}
+    <h2>{{ Translate "dashboard" }}</h2>
+    {{ if not . }}
+        <p class="no-data">{{ Translate "no_projects" }} <a href="/add" class="button">{{ Translate "add_new_project" }}</a></p>
+    {{ else }}
+    <table>
+        <thead>
+            <tr>
+                <th>{{ Translate "project_name" }}</th>
+                <th>{{ Translate "host_port" }}</th>
+                <th>{{ Translate "project_type" }}</th>
+                <th>{{ Translate "check_time" }}</th>
+                <th>{{ Translate "domains" }}</th>
+                <th>{{ Translate "ip" }}</th>
+                <th>{{ Translate "issuer" }}</th>
+                <th>{{ Translate "expiry_date" }}</th>
+                <th>{{ Translate "days_remaining" }}</th>
+                <th>{{ Translate "actions" }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range . }}
+            <tr>
+                <td>{{ .ProjectName }}</td>
+                <td>{{ .Host }}:{{ .Port }}</td>
+                <td>{{ .Type | ToUpper }}</td>
+                <td>
+                    {{ if .CheckTime }}
+                        {{ .CheckTime.Format "02 Jan 2006 15:04" }}
+                    {{ else }}
+                        <span class="no-data">{{ Translate "never_checked" }}</span>
+                    {{ end }}
+                </td>
+                <td>
+                    {{ if .Domains }}
+                        {{ .Domains }}
+                    {{ else }}
+                            <span class="no-data">-</span>
+                    {{ end }}
+                </td>
+                <td>
+                    {{ if .IP }}
+                        {{ .IP }}
+                    {{ else }}
+                            <span class="no-data">-</span>
+                    {{ end }}
+                </td>
+                <td>
+                    {{ if .Issuer }}
+                        {{ .Issuer }}
+                    {{ else }}
+                            <span class="no-data">-</span>
+                    {{ end }}
+                </td>
+                <td>
+                    {{ if .ExpiryDate }}
+                            {{ .ExpiryDate }}
+                    {{ else }}
+                        <span class="no-data">-</span>
+                    {{ end }}
+                </td>
+                <td>
+                    {{ if .DaysRemaining }}
+                        {{ $days := .DaysRemaining|Defer }}
+                        <span
+                            {{ if lt $days 0 }} class="days-critical" title="{{ Translate "expired" }}"
+                            {{ else if lt $days 15 }} class="days-critical"
+                            {{ else if lt $days 30 }} class="days-warning"
+                            {{ else }} class="days-ok"
+                            {{ end }}
+                        >
+                            {{ $days }}
+                        </span>
+                    {{ else }}
+                        <span class="no-data">-</span>
+                    {{ end }}
+                </td>
+                <td>
+                    <a href="/history/{{ .ProjectID }}" class="action-link link-details">{{ Translate "history" }}</a>
+                </td>
+            </tr>
+            {{ end }}
+        </tbody>
+    </table>
+    <button id="refreshButton">{{ Translate "refresh_datas" }}</button>
+    {{ end }}
+{{ end }}
+
+{{ block "scripts" . }}
+    <script src="/static/js/socket.js"></script>
+{{ end }}

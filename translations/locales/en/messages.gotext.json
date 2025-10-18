@@ -1,0 +1,229 @@
+{
+    "language": "en",
+    "messages": [
+        {
+            "id": "add_new_project",
+            "message": "add_new_project",
+            "translation": "Add new project",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "project_name",
+            "message": "project_name",
+            "translation": "Project name",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "host",
+            "message": "host",
+            "translation": "Host",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "service_type",
+            "message": "service_type",
+            "translation": "Service type",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "with_auth_tls",
+            "message": "with_auth_tls",
+            "translation": "(with auth TLS)",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "with_starttls",
+            "message": "with_starttls",
+            "translation": "(with STARTTLS)",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "custom",
+            "message": "custom",
+            "translation": "Custom",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "port",
+            "message": "port",
+            "translation": "Port",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "allow_insecure",
+            "message": "allow_insecure",
+            "translation": "Allow insecure certificates",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "allow_insecure_warning",
+            "message": "allow_insecure_warning",
+            "translation": "Allow insecure certificates must be used for self-signed or invalid certificates. Use with caution.",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "add_project",
+            "message": "add_project",
+            "translation": "Add project",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "no_history_found",
+            "message": "no_history_found",
+            "translation": "No history found",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "verification_date",
+            "message": "verification_date",
+            "translation": "Verification date",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "domains",
+            "message": "domains",
+            "translation": "Domains",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "ip",
+            "message": "ip",
+            "translation": "IP",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "issuer",
+            "message": "issuer",
+            "translation": "Issuer",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "expiry_date",
+            "message": "expiry_date",
+            "translation": "Expiry date",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "days_remaining",
+            "message": "days_remaining",
+            "translation": "Days remaining",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "failed",
+            "message": "failed",
+            "translation": "Failed",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "dashboard",
+            "message": "dashboard",
+            "translation": "Dashboard",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "no_projects",
+            "message": "no_projects",
+            "translation": "No project",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "host_port",
+            "message": "host_port",
+            "translation": "Host:Port",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "project_type",
+            "message": "project_type",
+            "translation": "Project type",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "check_time",
+            "message": "check_time",
+            "translation": "Check time",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "actions",
+            "message": "actions",
+            "translation": "Actions",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "never_checked",
+            "message": "never_checked",
+            "translation": "Never checked",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "expired",
+            "message": "expired",
+            "translation": "expired",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "history",
+            "message": "history",
+            "translation": "History",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "refresh_datas",
+            "message": "refresh_datas",
+            "translation": "Refresh datas",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "projects",
+            "message": "projects",
+            "translation": "Projects",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "confirm_delete",
+            "message": "confirm_delete",
+            "translation": "Are you sure you want to delete this project?",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        },
+        {
+            "id": "delete",
+            "message": "delete",
+            "translation": "Delete",
+            "translatorComment": "Copied from source.",
+            "fuzzy": true
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{{ define "title" }}{{ Translate "projects" }}{{ end  }}
+
+{{ define "content" }}
+        <h2>{{ Translate "projects" }}</h2>
+         {{ if not . }}
+        <p class="no-data">{{ Translate "no_projects" }} <a href="/add" class="button">{{ Translate "add_new_project" }}</a></p>
+        {{ else }}
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ Translate "project_name" }}</th>
+                    <th>{{ Translate "host" }}</th>
+                    <th>{{ Translate "port" }}</th>
+                    <th>{{ Translate "project_type" }}</th>
+                    <th>{{ Translate "actions" }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range . }}
+                <tr>
+                    <td>{{ .Name }}</td>
+                    <td>{{ .Host }}</td>
+                    <td>{{ .Port }}</td>
+                    <td>{{ .Type | ToUpper }}</td>
+                    <td>
+                        <form method="POST" action="/delete/{{ .ID }}" onsubmit="return confirm('{{ Translate "confirm_delete" }}');">
+                            <button type="submit" class="delete">{{ Translate "delete" }}</button>
+                        </form>
+                    </td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+        {{ end }}
+        <p style="margin-top: 20px;">
+            <a href="/add" class="button">Ajouter un Nouveau Projet</a>
+        </p>
+{{ end }}

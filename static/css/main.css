@@ -1,0 +1,164 @@
+:root {
+    --base-size: 16px;
+    --container-padding: var(--base-size) calc(var(--base-size) * 4);
+    --container-padding-mobile: var(--base-size);
+    --header-background-color: #333333;
+    --header-text-color: #ffffff;
+    --table-background-color: #ffffff;
+    --table-border-color: #ddd;
+    --table-header-background-color: #333333;
+    --table-header-text-color: #ffffff;
+    --table-row-hover-background-color: #f1f1f1;
+    --button-background-color: #3498db;
+    --button-text-color: #ffffff;
+    --button-hover-background-color: #2980b9;
+    --button-delete-background-color: #e74c3c;
+    --button-delete-text-color: #ffffff;
+    --button-delete-hover-background-color: #c0392b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: var(--base-size);
+    line-height: 1;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh
+}
+
+a {
+    color: inherit;
+}
+
+header, main, footer {
+  padding: var(--container-padding);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        li {
+            a {
+                padding: var(--base-size);
+                background-color: hsl(from var(--header-background-color) h s 25%);
+                &:hover {
+                    background-color: hsl(from var(--header-background-color) h s 35%);
+                }
+            }
+            &:first-of-type a {
+                border-radius: var(--base-size) 0 0 var(--base-size);
+                padding-left: calc(var(--base-size) * 1.5);
+            }
+            &:last-of-type a {
+                border-radius: 0 var(--base-size) var(--base-size) 0;
+                padding-right: calc(var(--base-size) * 1.5);
+            }
+        }
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: var(--base-size);;
+        img {
+            width: calc(var(--base-size) * 3);
+        }
+        h1 {
+            font-family: Splash;
+            font-size: calc(var(--base-size) * 1.5);
+            color: #fff;
+        }
+    }
+}
+
+main {
+    flex: 1;
+    article {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 calc(var(--base-size) * 0.5) rgba(0,0,0,0.1);
+        padding: var(--base-size) calc(var(--base-size) * 2);
+    }
+
+    table { 
+        border-collapse: collapse;
+        background-color: var(--table-background-color);
+        th, td {
+            border: 1px solid #ddd;
+            padding: calc(var(--base-size) * 0.5);
+            text-align: left;
+        }
+        th {
+            background-color: var(--table-header-background-color);
+            color: var(--table-header-text-color);
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: var(--table-row-even-background-color);
+        }
+    }
+}
+
+.form-group {
+    margin-bottom: calc(var(--base-size) * 1.5);
+    label {
+        display: block;
+        margin-bottom: calc(var(--base-size) * 0.5);
+        font-weight: bold;
+    }
+    input[type="text"], input[type="number"], select {
+        width: 100%;
+        padding: calc(var(--base-size) * 0.5);
+        border: 1px solid #ccc;
+        border-radius: calc(var(--base-size) * 0.25);
+    }
+    input[type="checkbox"] {
+        vertical-align: middle;
+        width: var(--base-size);
+        height: var(--base-size);
+    }
+    input[type="checkbox"] + label {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+}
+
+button, .button {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: calc(var(--base-size) * 0.5) calc(var(--base-size) * 1);
+    border-radius: calc(var(--base-size) * 0.25);
+    cursor: pointer;
+    font-size: var(--base-size);
+    &:hover {
+        background-color: var(--button-hover-background-color);
+    }
+    &.delete {
+        background-color: var(--button-delete-background-color);
+        &:hover {
+            background-color: var(--button-delete-hover-background-color);
+        }
+    }
+}
+
+.days-ok { color: green; }
+.days-warning { color: orange; }
+.days-critical { color: red; font-weight: bold; }
+.no-data { color: #777; font-style: italic; }

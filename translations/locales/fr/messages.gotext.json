@@ -1,0 +1,165 @@
+{
+    "language": "fr",
+    "messages": [
+        {
+            "id": "add_new_project",
+            "message": "add_new_project",
+            "translation": "Ajouter un nouveau projet"
+        },
+        {
+            "id": "project_name",
+            "message": "project_name",
+            "translation": "Nom du projet"
+        },
+        {
+            "id": "host",
+            "message": "host",
+            "translation": "Hôte"
+        },
+        {
+            "id": "service_type",
+            "message": "service_type",
+            "translation": "Type de service"
+        },
+        {
+            "id": "with_auth_tls",
+            "message": "with_auth_tls",
+            "translation": "(avec AUTH TLS)"
+        },
+        {
+            "id": "with_starttls",
+            "message": "with_starttls",
+            "translation": "(avec STARTTLS)"
+        },
+        {
+            "id": "custom",
+            "message": "custom",
+            "translation": "Personnalisé"
+        },
+        {
+            "id": "port",
+            "message": "port",
+            "translation": "Port"
+        },
+        {
+            "id": "allow_insecure",
+            "message": "allow_insecure",
+            "translation": "Autoriser les certificats non sécurisés"
+        },
+        {
+            "id": "allow_insecure_warning",
+            "message": "allow_insecure_warning",
+            "translation": "Pour les certificats auto-signés ou non sécurisés. À utiliser avec prudence !"
+        },
+        {
+            "id": "add_project",
+            "message": "add_project",
+            "translation": "Ajouter le projet"
+        },
+        {
+            "id": "no_history_found",
+            "message": "no_history_found",
+            "translation": "Aucun historique trouvé"
+        },
+        {
+            "id": "verification_date",
+            "message": "verification_date",
+            "translation": "Dernière vérification"
+        },
+        {
+            "id": "domains",
+            "message": "domains",
+            "translation": "Domaines"
+        },
+        {
+            "id": "ip",
+            "message": "ip",
+            "translation": "IP"
+        },
+        {
+            "id": "issuer",
+            "message": "issuer",
+            "translation": "Émetteur"
+        },
+        {
+            "id": "expiry_date",
+            "message": "expiry_date",
+            "translation": "Expire le"
+        },
+        {
+            "id": "days_remaining",
+            "message": "days_remaining",
+            "translation": "Jours restants"
+        },
+        {
+            "id": "failed",
+            "message": "failed",
+            "translation": "Échec"
+        },
+        {
+            "id": "dashboard",
+            "message": "dashboard",
+            "translation": "Tableau de bord"
+        },
+        {
+            "id": "no_projects",
+            "message": "no_projects",
+            "translation": "Aucun projet !"
+        },
+        {
+            "id": "host_port",
+            "message": "host_port",
+            "translation": "Hôte:Port"
+        },
+        {
+            "id": "project_type",
+            "message": "project_type",
+            "translation": "Type"
+        },
+        {
+            "id": "check_time",
+            "message": "check_time",
+            "translation": "Date de vérification"
+        },
+        {
+            "id": "actions",
+            "message": "actions",
+            "translation": "Actions"
+        },
+        {
+            "id": "never_checked",
+            "message": "never_checked",
+            "translation": "Jamais vérifié"
+        },
+        {
+            "id": "expired",
+            "message": "expired",
+            "translation": "Expiré"
+        },
+        {
+            "id": "history",
+            "message": "history",
+            "translation": "Historique"
+        },
+        {
+            "id": "refresh_datas",
+            "message": "refresh_datas",
+            "translation": "Rafraîchir les données"
+        },
+        {
+            "id": "projects",
+            "message": "projects",
+            "translation": "Liste des projets"
+        },
+        {
+            "id": "confirm_delete",
+            "message": "confirm_delete",
+            "translation": "Êtes vous sûr de vouloir supprimer ce projet et l'ensemble de son historique ?"
+        },
+        {
+            "id": "delete",
+            "message": "delete",
+            "translation": "Supprimer"
+        }
+    ]
+}
