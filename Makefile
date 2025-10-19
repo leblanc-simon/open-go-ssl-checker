@@ -20,16 +20,25 @@ build-translations: ## Build translations
 
 build-linux: ## Build release version for GNU/Linux
 	@GOOS="linux" GOARCH="amd64" CGO_ENABLED=1 go build -ldflags "-s -w -extldflags=-static -buildid= -X 'main.version=$(VERSION)'" -tags sqlite_omit_load_extension -trimpath -o $(OUTDIR)/open-go-ssl-checker-linux-amd64 main.go
-	@GOOS="linux" GOARCH="arm64" CGO_ENABLED=1 go build -ldflags "-s -w -extldflags=-static -buildid= -X 'main.version=$(VERSION)'" -tags sqlite_omit_load_extension -trimpath -o $(OUTDIR)/open-go-ssl-checker-linux-arm64 main.go
+	@CC=aarch64-linux-gnu-gcc \
+     CXX=aarch64-linux-gnu-g++ \
+     GOOS=linux GOARCH=arm64 CGO_ENABLED=1 \
+     go build -ldflags "-s -w -buildid= -X 'main.version=$(VERSION)'" \
+       -tags sqlite_omit_load_extension -trimpath \
+       -o releases/${VERSION}/open-go-ssl-checker-linux-arm64 main.go
 
 build-darwin: ## Build release version for MacOS
-	@GOOS="darwin" GOARCH="amd64" CGO_ENABLED=1 go build -ldflags "-s -w -extldflags=-static -buildid= -X 'main.version=$(VERSION)'" -tags sqlite_omit_load_extension -trimpath -o $(OUTDIR)/open-go-ssl-checker-darwin-amd64 main.go
-	@GOOS="darwin" GOARCH="arm64" CGO_ENABLED=1 go build -ldflags "-s -w -extldflags=-static -buildid= -X 'main.version=$(VERSION)'" -tags sqlite_omit_load_extension -trimpath -o $(OUTDIR)/open-go-ssl-checker-darwin-arm64 main.go
+	@GOOS="darwin" GOARCH="amd64" go build -ldflags "-s -w -buildid= -X 'main.version=$(VERSION)'" -tags sqlite_omit_load_extension -trimpath -o $(OUTDIR)/open-go-ssl-checker-darwin-amd64 main.go
+	@GOOS="darwin" GOARCH="arm64" go build -ldflags "-s -w -buildid= -X 'main.version=$(VERSION)'" -tags sqlite_omit_load_extension -trimpath -o $(OUTDIR)/open-go-ssl-checker-darwin-arm64 main.go
 
-build-windows: ## Build release version for MacOS
-	@GOOS="windows" GOARCH="amd64" CGO_ENABLED=1 go build -ldflags "-s -w -extldflags=-static -buildid= -X 'main.version=$(VERSION)'" -tags sqlite_omit_load_extension -trimpath -o $(OUTDIR)/open-go-ssl-checker-windows-amd64.exe main.go
+build-windows: ## Build release version for Windows
+	@CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ \
+    	GOOS="windows" GOARCH="amd64" CGO_ENABLED=1 \
+    	go build -ldflags "-s -w -extldflags=-static -buildid= -X 'main.version=$(VERSION)'" \
+    	  -tags sqlite_omit_load_extension -trimpath \
+    	  -o $(OUTDIR)/open-go-ssl-checker-windows-amd64.exe main.go
 
-release: clean-build build-translations build-linux build-darwin build-windows ## Build the release version
+release: clean-build build-translations build-darwin build-linux build-windows ## Build the release version
 
 .PHONY: help
 .DEFAULT_GOAL := help

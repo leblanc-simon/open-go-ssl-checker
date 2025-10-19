@@ -71,7 +71,7 @@ export OGSC_LOG_LEVEL=error
 export OGSC_API_KEY="change-me-please"
 ```
 
-## API
+### API
 
 An authenticated HTTP API is available to add projects.
 
@@ -105,6 +105,13 @@ curl -X POST http://127.0.0.1:4332/api/projects \
     "allow_insecure": false
   }'
 ```
+
+### Compilation
+
+If you want cross-compile the tool for another architecture, make sure you have the right tools installed :
+
+* Linux ARM64 : sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+* Windows : sudo apt-get install -y mingw-w64
 
 ### Author
 
